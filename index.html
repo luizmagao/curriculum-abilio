@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Abílio de Miranda Monteiro - Currículo Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a1a2e; --secondary: #16213e; --accent: #e94560;
+            --gold: #c9a227; --text-light: #f5f5f5; --text-muted: #a0a0a0;
+            --card-bg: rgba(255, 255, 255, 0.03);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: var(--text-light); line-height: 1.6; min-height: 100vh;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        header {
+            text-align: center; padding: 4rem 2rem; margin-bottom: 3rem;
+            background: linear-gradient(180deg, rgba(233,69,96,0.1) 0%, transparent 100%);
+            border-radius: 20px;
+        }
+        .name {
+            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700; background: linear-gradient(135deg, var(--text-light) 0%, var(--gold) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem;
+        }
+        .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 500; margin-bottom: 2rem; }
+        .contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-item {
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        .cnh-badge {
+            display: inline-block; padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--gold), #d4af37);
+            color: var(--primary); font-weight: 700; border-radius: 50px;
+        }
+        section { margin-bottom: 3rem; }
+        .section-title {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold);
+            margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        .profile-card {
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
+        }
+        .profile-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); }
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--gold) 100%);
+        }
+        .timeline-item {
+            position: relative; padding: 1.5rem; margin-bottom: 1.5rem;
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -2.35rem; top: 2rem;
+            width: 12px; height: 12px; background: var(--accent); border-radius: 50%;
+            border: 3px solid var(--primary);
+        }
+        .job-title { font-size: 1.2rem; font-weight: 600; color: var(--text-light); margin-bottom: 0.3rem; }
+        .job-company { color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+        .job-date { font-size: 0.9rem; color: var(--gold); margin-bottom: 1rem; }
+        .job-description { color: var(--text-muted); font-size: 0.95rem; }
+        .job-description ul { list-style: none; padding-left: 0; }
+        .job-description li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+        .job-description li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .education-card {
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px; padding: 1.5rem;
+            border-top: 3px solid var(--accent);
+        }
+        .edu-title { font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem; font-size: 1rem; }
+        .edu-institution { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.3rem; }
+        .edu-year { color: var(--gold); font-size: 0.85rem; }
+        footer { text-align: center; padding: 3rem 2rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .cta-button {
+            display: inline-block; padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+            color: white; text-decoration: none; border-radius: 50px;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(233,69,96,0.6); }
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .timeline { padding-left: 1.5rem; }
+            .timeline-item::before { left: -1.85rem; }
+            .education-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="name">João Abílio de Miranda Monteiro</h1>
+            <p class="tagline">Instrutor de Autoescola & Motorista Profissional</p>
+            <div class="contact-info">
+                <div class="contact-item">📍 Jardim Esperança 1, Parnaíba - PI</div>
+                <div class="contact-item">📱 (86) 9 9509-8821</div>
+                <div class="contact-item">✉️ [Insira seu melhor e-mail aqui]</div>
+            </div>
+            <div class="cnh-badge">🚗 CNH Categoria AD</div>
+        </header>
+
+        <section>
+            <h2 class="section-title">Perfil Profissional</h2>
+            <div class="profile-card">
+                <p class="profile-text">
+                    Profissional comprometido, com histórico de atuação em diferentes áreas, sempre prezando pela responsabilidade e bom relacionamento. Experiência recente como Instrutor de Autoescola, aliada à CNH categoria AD, que me habilitam a conduzir com segurança desde veículos de passeio até caminhões e ônibus. Possuo amplo conhecimento da legislação de trânsito, direção defensiva e técnicas de condução segura. Busco aplicar esses conhecimentos em uma posição de Motorista, contribuindo para a eficiência e segurança do transporte na empresa.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="job-title">Instrutor de Autoescola</div>
+                    <div class="job-company">Habilite Autoescola</div>
+                    <div class="job-date">📅 2024.01 - Presente</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Instrução de alunos para obtenção da CNH (teórica e prática)</li>
+                            <li>Ensino aprofundado da legislação de trânsito, direção defensiva, mecânica básica e primeiros socorros</li>
+                            <li>Responsabilidade pela segurança dos alunos e do veículo durante as aulas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Estagiário / Frentista</div>
+                    <div class="job-company">Posto Jovem</div>
+                    <div class="job-date">📅 2015.02</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Atendimento ao público e abastecimento de veículos</li>
+                            <li>Execução de tarefas com agilidade e precisão</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Assessor Escolar</div>
+                    <div class="job-company">Prefeitura Municipal de Parnaíba / SEDUC</div>
+                    <div class="job-date">📅 2013.01 - 2014.02</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Atuação em ambiente administrativo-escolar, com foco em organização e atendimento</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Auxiliar de Almoxarifado</div>
+                    <div class="job-company">Pauma Engenharia</div>
+                    <div class="job-date">📅 2012 (jan a mar)</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Controle de estoque, organização de materiais e conferência de notas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Auxiliar de Cadastramento e Mapeamento</div>
+                    <div class="job-company">AGESPISA</div>
+                    <div class="job-date">📅 2009 - 2010</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Coleta de dados e mapeamento de rotas, trabalho de campo e uso de sistemas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Formação e Qualificações</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="edu-title">Especialização em Docência para o Ensino Religioso</div>
+                    <div class="edu-institution">ICESPI</div>
+                    <div class="edu-year">2009 - 2010</div>
+                </div>
+                <div class="education-card">
+                    <div class="edu-title">Licenciatura Plena em Ciências da Religião</div>
+                    <div class="edu-institution">FATEV</div>
+                    <div class="edu-year">2005 - 2007</div>
+                </div>
+                <div class="education-card">
+                    <div class="edu-title">Técnico em Edificações</div>
+                    <div class="edu-institution">CEFET</div>
+                    <div class="edu-year">2008 - 2010</div>
+                </div>
+                <div class="education-card">
+                    <div class="edu-title">Curso de Frentista</div>
+                    <div class="edu-institution">SENAC</div>
+                    <div class="edu-year">2015</div>
+                </div>
+                <div class="education-card">
+                    <div class="edu-title">Curso de Torneiro Mecânico</div>
+                    <div class="edu-institution">SENAI</div>
+                    <div class="edu-year">2006</div>
+                </div>
+                <div class="education-card">
+                    <div class="edu-title">Curso Básico de Informática</div>
+                    <div class="edu-institution">SENAI</div>
+                    <div class="edu-year">2003</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <a href="tel:+55869995098821" class="cta-button">Entre em Contato</a>
+        </footer>
+    </div>
+</body>
+</html>
